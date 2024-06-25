@@ -67,5 +67,4 @@ Here's a quick example of how to use the app:
 2. Ask a question like "What are the main points in the document?".
 3. Receive detailed answers extracted from your documents.
 
-## 📦 File Structure
 
