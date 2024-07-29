@@ -51,7 +51,7 @@ def get_vectorstore(text_chunks):
 def get_conversation_chain(vectorstore):
     #api_key = os.environ['HUGGINGFACEHUB_API_TOKEN'] = st.secrets['HUGGINGFACEHUB_API_TOKEN']
     #llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-7B-Instruct-v0.2")#, token=api_key)
-    llm = HuggingFaceEndpoint(repo_id="google/gemma-1.1-2b-it")
+    llm = HuggingFaceEndpoint(repo_id="google/gemma-2-9b-it")
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
