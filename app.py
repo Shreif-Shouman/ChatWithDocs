@@ -10,6 +10,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain, RetrievalQAWithSourcesChain
 from htmlTemplates import css, bot_template, user_template
 from langchain_community.llms import HuggingFaceEndpoint
+from langchain_community.llms import Ollama
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -50,8 +51,9 @@ def get_vectorstore(text_chunks):
 
 def get_conversation_chain(vectorstore):
     #api_key = os.environ['HUGGINGFACEHUB_API_TOKEN'] = st.secrets['HUGGINGFACEHUB_API_TOKEN']
-    llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407")#, token=api_key)
+    #llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407")#, token=api_key)
     #llm = HuggingFaceEndpoint(repo_id="microsoft/Phi-3-mini-4k-instruct")
+    llm = Ollama(model="mistral")
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
