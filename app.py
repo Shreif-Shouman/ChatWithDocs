@@ -53,7 +53,7 @@ def get_conversation_chain(vectorstore):
     #api_key = os.environ['HUGGINGFACEHUB_API_TOKEN'] = st.secrets['HUGGINGFACEHUB_API_TOKEN']
     #llm = HuggingFaceEndpoint(repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1")#, token=api_key)
     #llm = HuggingFaceEndpoint(repo_id="microsoft/Phi-3-mini-4k-instruct")
-    llm = Ollama(model="gemma")
+    llm = Ollama(model="mistral", base_url="http://localhost:11434")
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
