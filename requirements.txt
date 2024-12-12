@@ -13,5 +13,5 @@ tiktoken==0.4.0
 #huggingface-hub==0.14.1
 huggingface-hub
 #uncomment to use instructor embeddings
-InstructorEmbedding==0.1.0
+InstructorEmbedding==1.0.1
 sentence-transformers==2.2.2
